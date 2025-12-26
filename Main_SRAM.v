@@ -1,7 +1,7 @@
 module Main_SRAM(
     input [3:0] address,   // 4 bits for 16 bytes
     input [7:0] data_in,
-    input write_enable,    //High Write / Low Read
+    input write_enable,    //High Write
     input clk,
     input sys_rst_n,
     output [7:0] data_out
@@ -25,7 +25,7 @@ module Main_SRAM(
         end
 
         else begin
-            if (write_enable && address >= 4'd13) begin //Hardcore write protection to first 8 byte (Code Memory)
+            if (write_enable && address >= 4'd13) begin //Hardcore write protection to first 12 byte (Code Memory)
                 memory[address] <= data_in;
             end
         end
