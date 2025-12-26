@@ -7,7 +7,7 @@ module Clock(
     output c_clk
 );
 
-parameter cycle_count = 1_350_000;
+parameter cycle_count = 1_350_000; //10 Hz Computer Clock
 
 reg [24:0] counter = 0;
 reg manual_clk_old = 0;
